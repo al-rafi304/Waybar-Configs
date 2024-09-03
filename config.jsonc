@@ -1,0 +1,150 @@
+{
+    "margin-top" : 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "height" : 32,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "cpu",
+        "memory",
+        "disk"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "custom/spotify",
+        "pulseaudio",
+        "custom/pulseaudio-style",
+        "network",
+        "network#speed",
+        "custom/vpn",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "disable-scroll": false,
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+        },
+        "sort-by-number": true
+    },
+    "clock": {
+        "format": " {:%I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%A, %Odth %b %Y}",
+        "interval": 1
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "󰄧 {usage}%",
+        "tooltip": true,
+        "on-click": "xfce4-terminal -e 'btop' --hide-scrollbar"
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {used}GB",
+        "tooltip-format": "Memory: {used}GiB / {total}GiB ({percentage}%) \nSwap: {swapUsed}GiB / {swapTotal}GiB ({swapPercentage}%)",
+        "toottip": true,
+        "on-click": "xfce4-terminal -e 'btop' --hide-scrollbar"
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {free}",
+        "path": "/",
+        "tooltip": true,
+        "tooltip-format": "Used: {used} ({percentage_used}%)",
+        "on-click": "thunar"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""],
+        "on-click": "xfce4-terminal -e 'btop' --hide-scrollbar"
+    },
+    "network": {
+        "interface": "wlp0s20f0u4",
+        "format": "{icon} {essid}",
+        // "format-ethernet": "󰈀  {ipaddr}/{cidr}",
+        "tooltip-format": "({signalStrength}%) {ipaddr}",
+        // "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰤮",
+        // "format-alt": "({signalStrength}%) {ipaddr}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "on-click": "xfce4-terminal -e nmtui-connect",
+        "interval": 1
+    },
+    "network#speed": {
+        "format-wifi": " {bandwidthDownBytes}",
+        "format-ethernet": "󰇚 {bandwidthDownBytes}",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-disconnected": "",
+        "format-alt": " {bandwidthUpBytes}",
+        "interval": 1,
+        "class": "speed",
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", "", "", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/power": {
+        "format" : "",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh"
+    },
+    "custom/vpn": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/vpn-status.sh",
+        "interval": 3,
+        "return-type": "json",
+        "on-click": "~/.config/waybar/scripts/vpn-chooser.sh"
+    },
+    "custom/spotify": {
+        "format": " {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "~/.config/waybar/scripts/spotify.sh --exec",
+        "on-click": "~/.config/waybar/scripts/spotify.sh --play-pause",
+        "on-click-right": "~/.config/waybar/scripts/spotify.sh --next",
+        "on-click-middle": "~/.config/waybar/scripts/spotify.sh --prev",
+        "on-scroll-up": "~/.config/waybar/scripts/spotify.sh --seek-forward",
+        "on-scroll-down": "~/.config/waybar/scripts/spotify.sh --seek-backward",
+        "max-length": 50
+    },
+    "custom/launcher": {
+        "format": "",
+        "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
+    },
+    "custom/weather": {
+        "format": {},
+        "exec": "python ~/.config/waybar/scripts/weather.py",
+        "on-click": "python ~/.config/waybar/scripts/weather.py",
+        "return-type": "json",
+        "interval": 600
+    }
+
+
+
+}
