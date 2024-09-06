@@ -43,6 +43,7 @@ window#waybar {
 
 tooltip {
     background-color: @base;
+    color: @text;
 }
 
 #custom-launcher, #custom-power {
@@ -65,10 +66,12 @@ tooltip {
     color: @sapphire;
     border-radius: 1rem 0px 0px 1rem;
     padding-left: 15px;
+    min-width: 40px
 }
 
 #memory {
     color: @teal;
+    min-width: 70px;
 }
 
 #disk {
@@ -86,7 +89,7 @@ tooltip {
 }
 
 #clock {
-    color: @lavender;
+    color: @text;
 }
 
 #custom-spotify, #pulseaudio, #network, #network-speed, #custom-vpn {
@@ -136,4 +139,8 @@ tooltip {
 
 #custom-power {
     color: @red;
+}
+
+#custom-launcher:hover, #cpu:hover, #memory:hover, #disk:hover, #clock:hover, #custom-weather:hover, #custom-spotify:hover, #network:hover, #custom-vpn:hover, #custom-power:hover {
+    background-color: @crust;
 }
