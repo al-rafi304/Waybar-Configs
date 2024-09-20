@@ -9,6 +9,7 @@ Modules:
 - **Weather**: Fetches data from [Open Meteo](https://open-meteo.com/en/docs) API and displays detailed information in the tooltip. Colors and icons dynamically change depending on weather type and temperature. *Note: Make sure to change location in weather.py file*
 - **VPN**: Displays Rofi's dmenu to choose from configured VPNs and shows status of connection. *Note: Make sure to configure VPN profiles in NetworkManager and the VPN scripts*
 - **Spotify**: Displays currently playing song and includes mouse controls for interating with media
+- **Launcher**: Launches specific apps which can be selected by scrolling. Rofi launcher is default.
 - **Default modules**: Workspaces, CPU, Memory, Disk, Clock, Pulseaudio, network, network speed (modifying nework module)
 
 # Requirements
