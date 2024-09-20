@@ -41,7 +41,7 @@
     "clock": {
         "format": " {:%I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%A, %Odth %b %Y}",
+        "format-alt": " {:%A, %dth %b %Y}",
         "interval": 1
     },
     "cpu": {
@@ -124,18 +124,21 @@
         "format": " {}",
         "escape": true,
         "interval": 5,
-        "tooltip": false,
+        // "tooltip": false,
         "exec": "~/.config/waybar/scripts/spotify.sh --exec",
         "on-click": "~/.config/waybar/scripts/spotify.sh --play-pause",
         "on-click-right": "~/.config/waybar/scripts/spotify.sh --next",
         "on-click-middle": "~/.config/waybar/scripts/spotify.sh --prev",
         "on-scroll-up": "~/.config/waybar/scripts/spotify.sh --seek-forward",
         "on-scroll-down": "~/.config/waybar/scripts/spotify.sh --seek-backward",
-        "max-length": 50
+        "max-length": 30,
+        "return-type": "json"
     },
     "custom/launcher": {
-        "format": "",
-        "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
+        "exec": "~/.config/waybar/scripts/launcher.sh && tail -f /tmp/launch_icon",
+        "interval": 0,
+        "on-click": "~/.config/waybar/scripts/launcher.sh --click",
+        "on-scroll-up": "~/.config/waybar/scripts/launcher.sh --cycle"
     },
     "custom/weather": {
         "format": {},
