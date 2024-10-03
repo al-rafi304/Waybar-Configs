@@ -20,7 +20,10 @@ if [ ! -e "$icon_file" ];then
 fi
 
 cycle_apps() {
-	index=$(( (index + 1) % ${#app_list[@]} ))
+	index=$(( (index + $1) % ${#app_list[@]} ))
+	if [ "$index" -lt 0 ];then
+		index=$(( ${#app_list[@]} - 1 ))
+	fi
 	echo "$index" > "$index_file"
 	current_app="$app_list["$index"]"
 	echo "$index"
@@ -46,6 +49,8 @@ if [[ "$1" == "--exec" ]];then
 	update_icons
 elif [[ "$1" == "--click" ]]; then
 	on_click
-elif [[ "$1" == "--cycle" ]]; then
-	cycle_apps && update_icons
+elif [[ "$1" == "--cycleUp" ]]; then
+	cycle_apps +1 && update_icons
+elif [[ "$1" == "--cycleDown" ]]; then
+	cycle_apps -1 && update_icons
 fi

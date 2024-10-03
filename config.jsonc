@@ -138,7 +138,8 @@
         "exec": "~/.config/waybar/scripts/launcher.sh && tail -f /tmp/launch_icon",
         "interval": 0,
         "on-click": "~/.config/waybar/scripts/launcher.sh --click",
-        "on-scroll-up": "~/.config/waybar/scripts/launcher.sh --cycle"
+        "on-scroll-up": "~/.config/waybar/scripts/launcher.sh --cycleUp",
+        "on-scroll-down": "~/.config/waybar/scripts/launcher.sh --cycleDown"
     },
     "custom/weather": {
         "format": {},
