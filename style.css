@@ -46,6 +46,15 @@ tooltip {
     color: @text;
 }
 
+#custom-record {
+    color: @text;
+/*    background-color: rgb(210, 15, 57);*/
+    background-color: rgb(191, 64, 64);
+    border-radius: 1rem;
+    padding: 2px 10px;
+    min-width: 30px;
+}
+
 #custom-launcher, #custom-power {
     background-color: @base;
     border-radius: 1rem;
@@ -57,16 +66,20 @@ tooltip {
     color: @green;
 }
 
-#cpu, #memory, #disk {
+#cpu, #custom-cpu, #memory, #disk, #custom-cpu {
     background-color: @base;
     padding: 2px 10px;
 }
 
-#cpu {
+#cpu, #custom-cpu {
     color: @sapphire;
     border-radius: 1rem 0px 0px 1rem;
     padding-left: 15px;
     min-width: 40px
+}
+
+#custom-cpu {
+    font-family: 'Courier New', Courier;
 }
 
 #memory {

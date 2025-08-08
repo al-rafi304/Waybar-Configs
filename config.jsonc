@@ -2,6 +2,7 @@
     "margin-top" : 6,
     "margin-left": 10,
     "margin-right": 10,
+    "margin-bottom": 3,
     "height" : 32,
     "modules-left": [
         "custom/launcher",
@@ -12,6 +13,7 @@
     ],
     "modules-center": [
         "clock",
+        "custom/record",
         "custom/weather"
     ],
     "modules-right": [
@@ -72,7 +74,7 @@
         "on-click": "xfce4-terminal -e 'btop' --hide-scrollbar"
     },
     "network": {
-        "interface": "wlp0s20f0u4",
+        "interface": "wlp0s20f0u3",
         "format": "{icon} {essid}",
         // "format-ethernet": "󰈀  {ipaddr}/{cidr}",
         "tooltip-format": "({signalStrength}%) {ipaddr}",
@@ -106,7 +108,8 @@
             "car": "",
             "default": ["", "", "", "", ""]
         },
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol -t 3",
     },
     "custom/power": {
         "format" : "",
@@ -143,12 +146,17 @@
     },
     "custom/weather": {
         "format": {},
-        "exec": "python ~/.config/waybar/scripts/weather.py",
-        "on-click": "python ~/.config/waybar/scripts/weather.py",
+        "exec": "python ~/.config/waybar/scripts/weather2.py",
+        "on-click": "python ~/.config/waybar/scripts/weather2.py",
+        // "on-click-right": "python ~/.config/waybar/scripts/weather2.py 'daily'",
         "return-type": "json",
         "interval": 600
+    },
+    "custom/record": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "~/.config/waybar/scripts/check_recording.sh",
+        "on-click": "~/.config/myscripts/screenrecord.sh"
     }
-
-
 
 }

@@ -46,7 +46,7 @@ def temp_color(temp):
 
 def main():
     try:
-        url = "https://api.open-meteo.com/v1/forecast?latitude=23.6850&longitude=90.3563&current=temperature_2m,precipitation,rain,weather_code,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,precipitation_probability,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min&timezone=auto"
+        url = "https://api.open-meteo.com/v1/forecast?latitude=23.625&longitude=90.375&current=temperature_2m,precipitation,rain,weather_code,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,precipitation_probability,weather_code,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto"
         response = requests.get(url)
     except:
         o = {"text": "󰖐 Offline"}
